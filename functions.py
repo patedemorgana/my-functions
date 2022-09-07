@@ -1,10 +1,33 @@
-# quadratic equation
+#Karatsuba
+
+def k(x, y):
+    if x < 10 or y < 10:
+        return x * y
+    else:
+        n = max(len(str(x)), len(str(y)))
+        h = n // 2
+        a = x // (10 ** (h))  
+        b = x % (10 ** (h))  
+        c = y // (10 ** (h))  
+        d = y % (10 ** (h))  
+        ac = k(a, c)
+        bd = k(b, d)
+        ad_plus_bc = k(a+b, c+d)-ac-bd
+        return ac * (10 ** (2 * h)) + (ad_plus_bc * (10 ** h)) + bd
+
+
+
+
+def sqrt(n):
+    n ** 0.5
+    return n
+
 
 def QuadraticEquation():
     a = int(input('a: '))
     b = int(input('b: '))
     c = int(input('c: '))
-    d = (b*b)-4*a*c
+    d = sqrt((b**2)-4*a*c)
     x1 = (-b - d)/(2*a)
     x2 = (-b + d)/(2*a)
     print('x1: ', x1, '\nx2:', x2, '\nΔ:', d)
@@ -26,9 +49,9 @@ def MUV():
     a = int(input('a: '))
     s = int(input('s: '))
     if s0 == None:
-        s0 = -s+(v0*t)+((a*(t*t))/2)  
+        s0 = -s+(v0*t)+((a*(t**2))/2)  
         return s0
 
     if s == None:
-        s = s0 + (v0*t) + ((a*(t*t))/2)
+        s = s0 + (v0*t) + ((a*(t**2))/2)
         return s

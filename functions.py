@@ -17,6 +17,21 @@ def k(x, y):
 
 
 
+def newton_method(func, funcderiv, x, n):
+    def f(x):
+        f = eval(func)
+        return f
+    def df(x):
+        df = eval(funcderiv)
+        return df
+    for i in range(1, n):
+        i = x - (f(x)/df(x))
+        x = i
+    print(f"the root {x}, iterations: {n}")
+
+
+
+
 
 def sqrt(n):
     n ** 0.5

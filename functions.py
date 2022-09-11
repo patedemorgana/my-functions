@@ -1,4 +1,7 @@
 #Karatsuba
+import cmath
+
+
 
 def k(x, y):
     if x < 10 or y < 10:
@@ -29,12 +32,16 @@ def newton_method(func, funcderiv, x, n):
         x = i
     print(f"the root {x}, iterations: {n}")
 
+def poh_shenloh(S, P):
+    r = ((S/2)**2 - P)
+    u = sqrt(r)
+    x1 = S/2 + u
+    x2 = S/2 - u 
+    return x1, x2, u, r
 
 
-
-
-def sqrt(n):
-    n ** 0.5
+def sqrt(n):       
+    int(n) ** 0.5
     return n
 
 
